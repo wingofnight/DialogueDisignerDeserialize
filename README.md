@@ -1,3 +1,6 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/wingofnight/stabilizer/badge)](https://www.codefactor.io/repository/github/wingofnight/DialogueDisignerDeserialize)
+[![github](https://github.githubassets.com/favicon.ico)](https://github.com/wingofnight)
+
 # DialogueDisignerDeserialize
 Библиотека которая помогает разобрать файл в формате .json который формирует программа Dialogue Disigner
 
