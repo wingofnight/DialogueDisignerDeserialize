@@ -3,7 +3,6 @@ using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
-
 /*
  * Важная информация. Я долго мучался и пришел к выводу что проще частично редактировать json файл вручную. 
  * Там встречаются разыне переменные с одинаковым именем. К примеру "Value" - бывает трех типов.
@@ -13,7 +12,6 @@ using System.Collections.Generic;
  * Вообще удаляю полностью. Так же хочу обратить внимание, что весь текст в файле .json заключен в "[ ]" Скобки, что говорит десериализации, что это тоже массив.
  * Их надо тоже удалить. Еще мне пока не удалось выяснить, что за переменная - "toggle", но пока у нее стоит тип string. Если будут проблеммы стоит обратить на нее внимание.
 */
-
 namespace DialogJson
 {
     // Dialigue Designer так сериализует классы, что их сложно потом распутать. Изначально он пихает все в массив. Для этого этот класс и есть.
@@ -21,7 +19,6 @@ namespace DialogJson
     {
         public List<Load_Stage> nodes { get; set; }
     }
-
     // В Этот класс будут загружаться все классы из программы Dialigue Designer
   public  class Load_Stage
     {
@@ -46,14 +43,10 @@ namespace DialogJson
         public int rect_size_y { get; set; }
         public Text text { get; set; }
         public List<Choice> choices { get; set; }
-
         public Dictionary<string, string> branches { get; set; }
-
         //[JsonExtensionData]
         //public Dictionary<string, object> ExtensionData { get; set; }
-
     }
-
     //В это классе храниться текст с разными языками. Это текст в кнопках и содержании сцены. 
     public class Text
     {
@@ -67,14 +60,12 @@ namespace DialogJson
         public string next { get; set; }
         public Text text { get; set; }
     }
-
     //тут просто храняться функции с методом десериализации. Все что нужно это использовать функцию decoding где в скобках
     //нужно указать адрес к файлу. Имейте в виду, что класс статичный и его экземпляры создавать не нужно, просто используейте его.
    public static class Dekodering
     {
         public static Dictionary<string, Load_Stage> Stage = new Dictionary<string, Load_Stage>();
-
-
+       
         public static void decoding(string file)
         {
             using FileStream openStream = File.OpenRead(file);
@@ -86,5 +77,4 @@ namespace DialogJson
             }
         }
     }
-
 }
